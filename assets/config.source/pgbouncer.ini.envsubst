@@ -1,0 +1,49 @@
+;;;
+;;; PgBouncer configuration file
+;;;
+;;; Stripped for one database configuration
+;;;
+
+[databases]
+$POSTGRES_DB = host=$POSTGRES_HOST port=$POSTGRES_PORT
+
+;; Configuration section
+[pgbouncer]
+
+;;;
+;;; Where to wait for clients
+;;;
+
+;; IP address or * which means all IPs
+listen_addr = $PGBOUNCER_LISTEN_ADDR
+listen_port = $PGBOUNCER_LISTEN_PORT
+
+;;;
+;;; Authentication settings
+;;;
+
+;; any, trust, plain, md5, cert, hba, pam
+auth_type = $PGBOUNCER_AUTH_TYPE
+auth_file = /etc/pgbouncer/userlist.txt
+
+;;;
+;;; Pooler personality questions
+;;;
+
+;; When server connection is released back to pool:
+;;   session      - after client disconnects (default)
+;;   transaction  - after transaction finishes
+;;   statement    - after statement finishes
+pool_mode = $PGBOUNCER_POOL_MODE
+
+;;;
+;;; Connection limits
+;;;
+
+;; Total number of clients that can connect
+max_client_conn = $PGBOUNCER_MAX_CLIENT_CONN
+
+;; Default pool size.  20 is good number when transaction pooling
+;; is in use, in session pooling it needs to be the number of
+;; max clients you want to handle at any moment
+default_pool_size = $PGBOUNCER_DEFAULT_POOL_SIZE

@@ -15,6 +15,7 @@ PGBOUNCER_AUTH_TYPE | How to authenticate users | md5
 PGBOUNCER_POOL_MODE | Default pool mode of pgbouncer | session
 PGBOUNCER_MAX_CLIENT_CONN | Maximum number of client connections allowed | 100
 PGBOUNCER_DEFAULT_POOL_SIZE | How many server connections to allow per user/database pair | 20
+PGBOUNCER_SERVER_LOGIN_RETRY | If login to the server failed, because of failure to connect or from authentication, the pooler waits this much before retrying to connect | 15
 
 These variables simply get replaced into generated pgbouncer.ini and userlist.txt. If more complex configuration is needed, mount the desired configuration and invoke the image with explicit entrypoint:
 

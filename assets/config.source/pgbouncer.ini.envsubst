@@ -47,3 +47,11 @@ max_client_conn = $PGBOUNCER_MAX_CLIENT_CONN
 ;; is in use, in session pooling it needs to be the number of
 ;; max clients you want to handle at any moment
 default_pool_size = $PGBOUNCER_DEFAULT_POOL_SIZE
+
+;;;
+;;; Timeouts
+;;;
+
+;; If server login failed (server_connect_timeout or auth failure)
+;; then wait this many second before trying again.
+server_login_retry = $PGBOUNCER_SERVER_LOGIN_RETRY

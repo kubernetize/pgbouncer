@@ -20,7 +20,7 @@ PGBOUNCER_SERVER_LOGIN_RETRY | If login to the server failed, because of failure
 These variables simply get replaced into generated pgbouncer.ini and userlist.txt. If more complex configuration is needed, mount the desired configuration and invoke the image with explicit entrypoint:
 
 ```bash
-$ docker run -e pgbouncer ghcr.io/kubernetize/pgbouncer /path/to/pgbouncer.ini
+$ docker run --entrypoint pgbouncer ghcr.io/kubernetize/pgbouncer /path/to/pgbouncer.ini
 ```
 
 This is intended to run as a side-container for specific applications in Kubernetes, thus Pgbouncer is bound to 127.0.0.1 by default (__PGBOUNCER_LISTEN_ADDR__).
